@@ -11,36 +11,36 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   return (myTurn = prompt(
-    "Enter your move (Rock, Paper or Scisscor"
+    "Enter your move (Rock, Paper or scissor"
   ).toLowerCase());
 }
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-
-console.log("My Choise is", humanSelection);
-console.log("Computer's choice is", computerSelection);
+playRound(humanSelection, computerSelection);
 
 function playRound(humanChoice, computerChoice) {
-  if (humanSelection == computerSelection) {
+  if (humanChoice == computerChoice) {
     return console.log("Ничья");
-  } else if (humanSelection == "rock" && computerSelection == "scissor") {
+  } else if (humanChoice == "rock" && computerChoice == "scissor") {
     return console.log("Rock beats scissors");
-  } else if (humanSelection == "scissor" && computerSelection == "paper") {
+  } else if (humanChoice == "scissor" && computerChoice == "paper") {
     return console.log("scissors beat paper");
-  } else if (humanSelection == "paper" && computerSelection == "rock") {
+  } else if (humanChoice == "paper" && computerChoice == "rock") {
     return console.log("paper beats rock");
-  } else if (computerSelection == "rock" && humanSelection == "scissor") {
+  } else if (humanChoice == "rock" && computerChoice == "scissor") {
     return console.log("Rock beats scissors");
-  } else if (computerSelection == "scissor" && humanSelection == "paper") {
+  } else if (humanChoice == "scissor" && computerChoice == "paper") {
     return console.log("scissors beat paper");
-  } else if (computerSelection == "paper" && humanSelection == "rock") {
+  } else if (humanChoice == "paper" && computerChoice == "rock") {
     return console.log("paper beats rock");
   } else {
-    return console.log("Ничья");
+    return console.log("Нет хода");
   }
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
-playRound(humanSelection, computerSelection);
+console.log("My Choise is", humanSelection);
+console.log("Computer's choice is", computerSelection);
