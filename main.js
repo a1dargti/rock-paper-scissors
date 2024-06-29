@@ -20,9 +20,6 @@ let computerScore = 0;
 
 playGame();
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == computerChoice) {
     return console.log("Ничья");
@@ -43,15 +40,12 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// playRound(humanSelection, computerSelection);
 function playGame() {
   for (let i = 1; i < 6; i++) {
     console.log("Round", i);
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-    // let humanScore = 0;
-    // let computerScore = 0;
   }
   console.log("Human's score is: ", humanScore);
   console.log("Computer's score is: ", computerScore);
