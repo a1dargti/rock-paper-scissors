@@ -9,6 +9,10 @@ function getComputerChoice() {
   }
 }
 
+const showHuman = document.querySelector("#human");
+const showAi = document.querySelector("#ai");
+const showResults = document.querySelector("#results");
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissor = document.querySelector("#scissor");
@@ -28,25 +32,61 @@ function getHumanChoice(str) {
 let humanScore = 0;
 let computerScore = 0;
 
+// console.log(computerScore);
+// console.log(humanScore);
+
+showHuman.textContent = humanScore;
+showAi.textContent = computerScore;
+
 // playGame();
 
 function playRound(humanChoice, computerChoice) {
+  showHuman.textContent = humanScore;
+  showAi.textContent = computerScore;
+
+  if (humanScore == 5 && computerScore < 5) {
+    alert("Человечество выиграло в этой войне!");
+    humanScore = 0;
+    computerScore = 0;
+  } else if (humanScore < 5 && computerScore == 5) {
+    alert("You are Terminated!");
+    humanScore = 0;
+    computerScore = 0;
+  }
+
   if (humanChoice == computerChoice) {
-    return console.log("Ничья");
+    return (showResults.textContent = "Ничья");
   } else if (humanChoice == "rock" && computerChoice == "scissor") {
-    return console.log("You won: Rock beats scissors"), (humanScore += 1);
+    return (
+      (showResults.textContent = "You won: Rock beats scissors"),
+      (humanScore += 1)
+    );
   } else if (humanChoice == "scissor" && computerChoice == "paper") {
-    return console.log("You won: scissors beat paper"), (humanScore += 1);
+    return (
+      (showResults.textContent = "You won: scissors beat paper"),
+      (humanScore += 1)
+    );
   } else if (humanChoice == "paper" && computerChoice == "rock") {
-    return console.log("You won: paper beats rock"), (humanScore += 1);
+    return (
+      (showResults.textContent = "You won: paper beats rock"), (humanScore += 1)
+    );
   } else if (computerChoice == "rock" && humanChoice == "scissor") {
-    return console.log("You Lose: Rock beats scissors"), (computerScore += 1);
+    return (
+      (showResults.textContent = "You Lose: Rock beats scissors"),
+      (computerScore += 1)
+    );
   } else if (computerChoice == "scissor" && humanChoice == "paper") {
-    return console.log("You Lose: scissors beat paper"), (computerScore += 1);
+    return (
+      (showResults.textContent = "You Lose: scissors beat paper"),
+      (computerScore += 1)
+    );
   } else if (computerChoice == "paper" && humanChoice == "rock") {
-    return console.log("You Lose: paper beats rock"), (computerScore += 1);
+    return (
+      (showResults.textContent = "You Lose: paper beats rock"),
+      (computerScore += 1)
+    );
   } else {
-    return console.log("It doesn't work");
+    return (showResults.textContent = "It doesn't work");
   }
 }
 
